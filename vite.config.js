@@ -29,11 +29,6 @@ export default {
         copyFileSync('src/android-chrome-192x192.png', 'dist/android-chrome-192x192.png')
         copyFileSync('src/android-chrome-512x512.png', 'dist/android-chrome-512x512.png')
 
-        if (!existsSync('dist/src/html')) {
-          mkdirSync('dist/src/html', { recursive: true })
-        }
-        copyFileSync('src/html/properties.json', 'dist/src/html/properties.json')
-
         try {
           if (!existsSync('dist/assets')) {
             mkdirSync('dist/assets', { recursive: true })

@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function fetchData() {
     try {
-      const response = await fetch('/src/html/properties.json')
+      const response = await fetch('/properties.json')
       const data = await response.json()
       housesData = data.housesData || []
       renderHouseCards(housesData)
