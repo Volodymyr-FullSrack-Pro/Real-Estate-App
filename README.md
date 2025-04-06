@@ -2,7 +2,7 @@
 
 # Real Estate Website
 
-![Alt-текст](./src/assets/images/preview.png)
+![Preview](public/assets/images/preview.png)
 
 ### [Public link] https://currency-converter-api-app-mvp.netlify.app/)
 
