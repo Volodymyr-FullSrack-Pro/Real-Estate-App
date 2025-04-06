@@ -1,0 +1,128 @@
+<footer class="footer">
+	<div class="container">
+		<div class="footer__content">
+			<div class="footer__col footer__col--about">
+				<div class="footer__logo">
+					<div class="footer__logo-background">
+						<include src="html/components/logo/_index.html"></include>
+					</div>
+				</div>
+				<p class="footer__description">
+					Premium real estate marketplace specializing in luxury properties across the globe. Find your dream home with
+					House Zone.
+				</p>
+				<div class="footer__social">
+					<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+					<a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+					<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+				</div>
+			</div>
+
+			<div class="footer__col footer__col--quick-links">
+				<h3 class="footer__heading">Quick Links</h3>
+				<ul class="footer__links">
+					<li><a href="#" data-scroll="hero">Home</a></li>
+					<li><a href="#services" data-scroll="services">Services</a></li>
+					<li><a href="#house-list" data-scroll="house-list">Properties</a></li>
+					<li><a href="#agents" data-scroll="agents">Agents</a></li>
+					<li><a href="#testimonials" data-scroll="testimonials">Testimonials</a></li>
+					<li><a href="#faq" data-scroll="faq">FAQ</a></li>
+					<li><a href="#contact" data-scroll="contact">Contact</a></li>
+				</ul>
+			</div>
+
+			<div class="footer__col footer__col--contact">
+				<h3 class="footer__heading">Contact Us</h3>
+				<ul class="footer__contact-list">
+					<li>
+						<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+						<span>28 Makarios III Avenue, Limassol, Cyprus</span>
+					</li>
+					<li>
+						<i class="fa-solid fa-phone" aria-hidden="true"></i>
+						<a href="tel:+35725123456">+357 25 123 456</a>
+					</li>
+					<li>
+						<i class="fa-solid fa-envelope" aria-hidden="true"></i>
+						<a href="mailto:info@realestate-limassol.com">info@realestate-limassol.com</a>
+					</li>
+					<li>
+						<i class="fa-solid fa-clock" aria-hidden="true"></i>
+						<span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__col footer__col--newsletter">
+				<h3 class="footer__heading">Newsletter</h3>
+				<p class="footer__newsletter-text">Subscribe to our newsletter for the latest property listings and real estate
+					news.</p>
+				<form class="footer__form" aria-label="Newsletter subscription">
+					<div class="footer__input-group">
+						<input type="email" placeholder="Your email address" aria-label="Your email address" required>
+						<button type="submit" aria-label="Subscribe">
+							<i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+						</button>
+					</div>
+				</form>
+				<p class="footer__note">We respect your privacy and won't share your info.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer__bottom-wrapper">
+		<div class="footer__bottom">
+			<div class="footer__copyright">
+				<p>&copy; 2025 House Zone. All rights reserved.</p>
+			</div>
+			<div class="footer__terms">
+				<a href="#">Privacy Policy</a>
+				<a href="#">Terms of Service</a>
+				<a href="#">Cookie Policy</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const footerLinks = document.querySelectorAll('.footer__links a[data-scroll]')
+
+		if (footerLinks) {
+			footerLinks.forEach(link => {
+				link.addEventListener('click', (e) => {
+					e.preventDefault()
+
+					const targetId = link.getAttribute('data-scroll')
+					const targetSection = document.getElementById(targetId)
+
+					if (targetSection) {
+						window.scrollTo({
+							top: targetSection.offsetTop - 80,
+							behavior: 'smooth'
+						})
+					} else if (targetId === 'hero') {
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth'
+						})
+					}
+				})
+			})
+		}
+
+		const newsletterForm = document.querySelector('.footer__form')
+		if (newsletterForm) {
+			newsletterForm.addEventListener('submit', (e) => {
+				e.preventDefault()
+				const emailInput = newsletterForm.querySelector('input[type="email"]')
+
+				if (emailInput && emailInput.value) {
+					alert('Thank you for subscribing to our newsletter!')
+					emailInput.value = ''
+				}
+			})
+		}
+	});
+</script>

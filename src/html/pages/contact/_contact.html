@@ -1,0 +1,217 @@
+<section class="contact" id="contact">
+  <include src="html/components/decorative-orbs/_index.html"></include>
+  <div class="contact__container">
+    <div class="contact__content">
+      <div class="contact__info">
+        <include src="html/components/main-title/_index.html" locals='{"text": "Contact Us"}'></include>
+        <p class="contact__description">
+          Have questions about our properties or services? Get in touch with our team for personalized assistance with
+          your real estate needs.
+        </p>
+
+        <div class="contact__details">
+          <div class="contact__detail">
+            <div class="contact__detail-header">
+              <div class="contact__icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <h3>Our Office</h3>
+            </div>
+            <p>28 Makarios III Avenue, Limassol, Cyprus</p>
+          </div>
+
+          <div class="contact__detail">
+            <div class="contact__detail-header">
+              <div class="contact__icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <h3>Phone</h3>
+            </div>
+            <p><a href="tel:+35725123456">+357 25 123 456</a></p>
+          </div>
+
+          <div class="contact__detail">
+            <div class="contact__detail-header">
+              <div class="contact__icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <h3>Email</h3>
+            </div>
+            <p><a href="mailto:info@realestate-limassol.com">info@realestate-limassol.com</a></p>
+          </div>
+
+          <div class="contact__detail">
+            <div class="contact__detail-header">
+              <div class="contact__icon">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <h3>Working Hours</h3>
+            </div>
+            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__form-container">
+        <form class="contact__form" novalidate>
+          <div class="contact__form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+            <div class="error-message" id="name-error"></div>
+          </div>
+
+          <div class="contact__form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email address" required>
+            <div class="error-message" id="email-error"></div>
+          </div>
+
+          <div class="contact__form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+            <div class="error-message" id="phone-error"></div>
+          </div>
+
+          <div class="contact__form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Message subject">
+            <div class="error-message" id="subject-error"></div>
+          </div>
+
+          <div class="contact__form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+            <div class="error-message" id="message-error"></div>
+          </div>
+
+          <button type="submit" class="contact__submit-btn">
+            <span>Send Message</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactDetails = document.querySelectorAll('.contact__detail')
+    contactDetails.forEach(detail => {
+      detail.addEventListener('mouseenter', () => {
+        const icon = detail.querySelector('.contact__icon')
+        if (icon) {
+          icon.style.transform = 'scale(1.1)'
+        }
+      })
+
+      detail.addEventListener('mouseleave', () => {
+        const icon = detail.querySelector('.contact__icon')
+        if (icon) {
+          icon.style.transform = ''
+        }
+      })
+    })
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const name = contactForm.querySelector('#name')
+        const email = contactForm.querySelector('#email')
+        const phone = contactForm.querySelector('#phone')
+        const subject = contactForm.querySelector('#subject')
+        const message = contactForm.querySelector('#message')
+        const submitBtn = contactForm.querySelector('.contact__submit-btn')
+
+        const errorFields = {
+          name: document.getElementById('name-error'),
+          email: document.getElementById('email-error'),
+          phone: document.getElementById('phone-error'),
+          subject: document.getElementById('subject-error'),
+          message: document.getElementById('message-error'),
+        }
+
+        Object.values(errorFields).forEach(el => el.textContent = '');
+        [name, email, phone, subject, message].forEach(field => field.classList.remove('invalid'))
+
+        const nameRegex = /^[a-zA-Z\s\-']{4,}$/
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+        const phoneRegex = /^\+?[0-9\s\-()]{10,}$/
+
+        let isValid = true
+
+        if (!nameRegex.test(name.value.trim())) {
+          name.classList.add('invalid')
+          errorFields.name.textContent = 'Name must be at least 4 characters and contain only letters'
+          isValid = false
+        }
+
+        if (!emailRegex.test(email.value.trim())) {
+          email.classList.add('invalid')
+          errorFields.email.textContent = 'Enter a valid email address (e.g., user@mail.com)'
+          isValid = false
+        }
+
+        if (phone.value.trim() && !phoneRegex.test(phone.value.trim())) {
+          phone.classList.add('invalid')
+          errorFields.phone.textContent = 'Enter a valid phone number (e.g., +357 99 123456)'
+          isValid = false
+        }
+
+        if (message.value.trim().length < 10) {
+          message.classList.add('invalid')
+          errorFields.message.textContent = 'Message must be at least 10 characters'
+          isValid = false
+        }
+
+        const isOnlyEnglish = value => /^[\u0000-\u007F]*$/.test(value.trim())
+
+        const englishFields = [
+          { el: name, errorEl: errorFields.name, label: 'Name' },
+          { el: email, errorEl: errorFields.email, label: 'Email' },
+          { el: phone, errorEl: errorFields.phone, label: 'Phone' },
+          { el: subject, errorEl: errorFields.subject, label: 'Subject' },
+          { el: message, errorEl: errorFields.message, label: 'Message' }
+        ]
+
+        for (const field of englishFields) {
+          if (field.el.value.trim() && !isOnlyEnglish(field.el.value)) {
+            field.el.classList.add('invalid')
+            field.errorEl.textContent = `${field.label} must contain English characters only`
+            isValid = false
+          }
+        }
+
+        if (!isValid) {
+          showToast('❌ Please correct the errors in the form', 'error')
+          return
+        }
+
+        submitBtn.disabled = true
+        const originalText = submitBtn.innerHTML
+        submitBtn.innerHTML = '<span>Sending...</span>'
+
+        setTimeout(() => {
+          showToast(`✅ Message sent! Thank you, ${name.value.trim()}!`, 'success')
+          contactForm.reset()
+          submitBtn.disabled = false
+          submitBtn.innerHTML = originalText
+        }, 1500)
+      })
+    }
+
+    function showToast(message, type = 'success') {
+      const toast = document.createElement('div')
+      toast.className = `toast toast--${type}`
+      toast.textContent = message
+      document.body.appendChild(toast)
+
+      setTimeout(() => toast.classList.add('visible'), 100)
+      setTimeout(() => {
+        toast.classList.remove('visible')
+        setTimeout(() => toast.remove(), 300)
+      }, 3000)
+    }
+  });
+</script>

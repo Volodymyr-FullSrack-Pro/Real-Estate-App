@@ -1,0 +1,97 @@
+<section class="faq" id="faq">
+	<include src="html/components/decorative-orbs/_index.html"></include>
+	<div class="faq__container">
+		<include src="html/components/main-title/_index.html" locals='{"text": "Frequently Asked Questions"}'></include>
+		<p class="faq__subtitle">Find answers to the most common questions about our real estate services and properties</p>
+
+		<div class="faq__accordion">
+			<div class="faq__item">
+				<div class="faq__question">
+					<h3><i class="fa-solid fa-search fa-sm"></i> How do I start searching for a property?</h3>
+					<span class="faq__icon"><i class="fa-solid fa-chevron-down"></i></span>
+				</div>
+				<div class="faq__answer">
+					<p>You can begin your property search by using our search filters at the top of the homepage. Filter by
+						location, property type, price range, and more to find listings that match your criteria. Our advanced
+						search tools make it easy to narrow down options based on your specific needs and preferences.</p>
+				</div>
+			</div>
+
+			<div class="faq__item">
+				<div class="faq__question">
+					<h3><i class="fa-solid fa-file-contract fa-sm"></i> What documents do I need when buying a property?</h3>
+					<span class="faq__icon"><i class="fa-solid fa-chevron-down"></i></span>
+				</div>
+				<div class="faq__answer">
+					<p>Required documents typically include proof of identity, proof of address, proof of income, bank statements,
+						and sometimes tax returns. Additional documents may be needed depending on the specific property and
+						location. Our expert agents will guide you through the entire documentation process.</p>
+				</div>
+			</div>
+
+			<div class="faq__item">
+				<div class="faq__question">
+					<h3><i class="fa-solid fa-clock fa-sm"></i> How long does the buying process take?</h3>
+					<span class="faq__icon"><i class="fa-solid fa-chevron-down"></i></span>
+				</div>
+				<div class="faq__answer">
+					<p>The typical property buying process takes 2-3 months from initial offer to completion, but this can vary
+						based on factors such as market conditions, financing arrangements, and legal requirements in different
+						locations. Our team works efficiently to ensure the process moves as smoothly as possible.</p>
+				</div>
+			</div>
+
+			<div class="faq__item">
+				<div class="faq__question">
+					<h3><i class="fa-solid fa-money-bill-wave fa-sm"></i> What are closing costs and who pays them?</h3>
+					<span class="faq__icon"><i class="fa-solid fa-chevron-down"></i></span>
+				</div>
+				<div class="faq__answer">
+					<p>Closing costs are fees associated with completing a real estate transaction, including legal fees, taxes,
+						insurance, and administrative costs. These costs are typically split between buyer and seller according to
+						local customs and negotiated terms. We provide a detailed breakdown of all costs before closing so there are
+						no surprises.</p>
+				</div>
+			</div>
+
+			<div class="faq__item">
+				<div class="faq__question">
+					<h3><i class="fa-solid fa-house-circle-check fa-sm"></i> Can I sell my current home and buy a new one
+						simultaneously?</h3>
+					<span class="faq__icon"><i class="fa-solid fa-chevron-down"></i></span>
+				</div>
+				<div class="faq__answer">
+					<p>Yes, it's possible to coordinate the sale of your current home with the purchase of a new one. Our agents
+						can help you manage this process, which might involve temporary housing arrangements or contingency clauses
+						in your contracts. We have extensive experience in coordinating these complex transactions.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="faq__more">
+			<p>Still have questions? <a href="#contact">Contact our team</a> for personalized assistance.</p>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const faqItems = document.querySelectorAll('.faq__item')
+
+		faqItems.forEach(item => {
+			const question = item.querySelector('.faq__question')
+
+			question.addEventListener('click', () => {
+				// Toggle active class on the clicked item
+				item.classList.toggle('active')
+
+				// Close other items
+				faqItems.forEach(otherItem => {
+					if (otherItem !== item && otherItem.classList.contains('active')) {
+						otherItem.classList.remove('active')
+					}
+				})
+			})
+		})
+	});
+</script>

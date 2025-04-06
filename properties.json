@@ -1,0 +1,605 @@
+{
+  "countries": [
+    "Location (any)",
+    "United States",
+    "Canada",
+    "Mexico",
+    "United Kingdom",
+    "France",
+    "Spain",
+    "Italy",
+    "Greece",
+    "Cyprus",
+    "Portugal",
+    "Thailand",
+    "Bali",
+    "Maldives",
+    "Turkey",
+    "Germany"
+  ],
+  "propertyTypes": [
+    "Property type (any)",
+    "House",
+    "Apartment",
+    "Condo",
+    "Townhouse",
+    "Villa",
+    "Bungalow",
+    "Penthouse",
+    "Land"
+  ],
+  "priceRanges": [
+    "Price range (any)",
+    "20000 - 40000",
+    "40000 - 100000",
+    "100000 - 130000",
+    "130000 - 160000",
+    "160000 - 190000",
+    "190000 - 220000",
+    "220000 - 300000",
+    "300000 - 500000",
+    "500000 - 1000000"
+  ],
+  "housesData": [
+    {
+      "id": 1,
+      "type": "House",
+      "name": "House 1",
+      "description": "Spacious family home with modern amenities, large backyard, and recently renovated kitchen. Located in a quiet neighborhood with excellent schools nearby.",
+      "imagePath": "src/assets/images/houses/house1.png",
+      "imageLgPath": "src/assets/images/houses/house1lg.png",
+      "country": "United States",
+      "address": "7240C Argyle St. Lawndale, CA 90260",
+      "bedrooms": "6",
+      "bathrooms": "3",
+      "surface": "4200 sq ft",
+      "year": "2016",
+      "price": "110000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent1.png",
+        "name": "Patricia Tullert",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 2,
+      "type": "House",
+      "name": "House 2",
+      "description": "Beautiful two-story house with modern design, featuring an open concept living area, gourmet kitchen, and a spacious backyard perfect for entertaining.",
+      "imagePath": "src/assets/images/houses/house2.png",
+      "imageLgPath": "src/assets/images/houses/house2lg.png",
+      "country": "Canada",
+      "address": "798 Talbot St. Bridgewater, NJ 08807",
+      "bedrooms": "6",
+      "bathrooms": "3",
+      "surface": "4200 sq ft",
+      "year": "2014",
+      "price": "140000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent2.png",
+        "name": "Daryl Hawker",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 3,
+      "type": "House",
+      "name": "House 3",
+      "description": "Elegant home in a prime location with stunning views, hardwood floors throughout, updated bathrooms, and a newly renovated kitchen with high-end appliances.",
+      "imagePath": "src/assets/images/houses/house3.png",
+      "imageLgPath": "src/assets/images/houses/house3lg.png",
+      "country": "United States",
+      "address": "2 Glen Creek St. Alexandria, VA 22304",
+      "bedrooms": "6",
+      "bathrooms": "3",
+      "surface": "4200 sq ft",
+      "year": "2015",
+      "price": "170000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent3.png",
+        "name": "Amado Smith",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 4,
+      "type": "House",
+      "name": "House 4",
+      "description": "Elegant family residence with spacious rooms, high ceilings, and abundant natural light. Features a chef's kitchen, home office, and expansive outdoor living area.",
+      "imagePath": "src/html/pages/assets/img/houses/house4.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house4lg.png",
+      "country": "Canada",
+      "address": "84 Woodland St. Cocoa, FL 32927",
+      "bedrooms": "6",
+      "bathrooms": "3",
+      "surface": "4200 sq ft",
+      "year": "2016",
+      "price": "200000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent4.png",
+        "name": "Kaitlyn Gonzalez",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 5,
+      "type": "House",
+      "name": "House 5",
+      "description": "Contemporary home with clean lines and open concept living. Features include custom cabinetry, stone countertops, and energy-efficient appliances.",
+      "imagePath": "src/html/pages/assets/img/houses/house5.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house5lg.png",
+      "country": "United States",
+      "address": "28 Westport Dr. Warminster, PA 18974",
+      "bedrooms": "5",
+      "bathrooms": "3",
+      "surface": "4200 sq ft",
+      "year": "2015",
+      "price": "210000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent5.png",
+        "name": "Grover Robinson",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 6,
+      "type": "House",
+      "name": "House 6",
+      "description": "Impressive estate home on a large lot with mature landscaping. Featuring a gourmet kitchen, formal dining room, and luxurious master suite retreat.",
+      "imagePath": "src/html/pages/assets/img/houses/house6.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house6lg.png",
+      "country": "Canada",
+      "address": "32 Pawnee Street Butte, MT 59701",
+      "bedrooms": "6",
+      "bathrooms": "3",
+      "surface": "6200 sq ft",
+      "year": "2014",
+      "price": "220000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent6.png",
+        "name": "Karen Sorensen",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 7,
+      "type": "Apartment",
+      "name": "Apartment 1",
+      "description": "Modern city apartment with stylish finishes and great natural light. Open concept living with balcony and secure parking. Steps from cafes and transit.",
+      "imagePath": "src/html/pages/assets/img/apartments/a1.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a1lg.png",
+      "country": "Canada",
+      "address": "32 Pawnee Street Butte, MT 59701",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "surface": "1200 sq ft",
+      "year": "2012",
+      "price": "20000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent7.png",
+        "name": "Jawhar Shamil Naser",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 8,
+      "type": "Apartment",
+      "name": "Apartment 2",
+      "description": "Cozy apartment in a vibrant neighborhood with recently updated kitchen and bathroom. Great storage and in-unit laundry. Perfect for first-time buyers.",
+      "imagePath": "src/html/pages/assets/img/apartments/a2.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a2lg.png",
+      "country": "United States",
+      "address": "28 Westport Dr. Warminster, PA 18974",
+      "bedrooms": "3",
+      "bathrooms": "1",
+      "surface": "1000 sq ft",
+      "year": "2011",
+      "price": "30000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent8.png",
+        "name": "Juana Douglass",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 9,
+      "type": "Apartment",
+      "name": "Apartment 3",
+      "description": "Bright and airy apartment with large windows and city views. Featuring hardwood floors, updated kitchen with stainless appliances, and ample closet space.",
+      "imagePath": "src/html/pages/assets/img/apartments/a3.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a3lg.png",
+      "country": "United States",
+      "address": "84 Woodland St. Cocoa, FL 32927",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "surface": "1100 sq ft",
+      "year": "2011",
+      "price": "40000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent9.png",
+        "name": "Jerry Schenck",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 10,
+      "type": "House",
+      "name": "House 7",
+      "description": "Well-maintained family home with updated features and spacious backyard. Recent updates include new roof, HVAC, and kitchen appliances.",
+      "imagePath": "src/html/pages/assets/img/houses/house7.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house7lg.png",
+      "country": "Canada",
+      "address": "7240C Argyle St. Lawndale, CA 90260",
+      "bedrooms": "5",
+      "bathrooms": "3",
+      "surface": "3200 sq ft",
+      "year": "2015",
+      "price": "117000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent10.png",
+        "name": "Vera Levesque",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 11,
+      "type": "House",
+      "name": "House 8",
+      "description": "Newly constructed home with modern design and energy-efficient features. Open floor plan with custom finishes and premium appliances throughout.",
+      "imagePath": "src/html/pages/assets/img/houses/house8.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house8lg.png",
+      "country": "Canada",
+      "address": "798 Talbot St. Bridgewater, NJ 08807",
+      "bedrooms": "7",
+      "bathrooms": "2",
+      "surface": "2200 sq ft",
+      "year": "2019",
+      "price": "145000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent11.png",
+        "name": "Sofia Gomes",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 12,
+      "type": "House",
+      "name": "House 9",
+      "description": "Stately colonial home with historical character and modern updates. Features include original woodwork, updated kitchen, and spacious primary suite.",
+      "imagePath": "src/html/pages/assets/img/houses/house9.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house9lg.png",
+      "country": "United States",
+      "address": "2 Glen Creek St. Alexandria, VA 22304",
+      "bedrooms": "4",
+      "bathrooms": "4",
+      "surface": "4600 sq ft",
+      "year": "2015",
+      "price": "139000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent12.png",
+        "name": "Raymond Hood",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 13,
+      "type": "House",
+      "name": "House 10",
+      "description": "Spacious ranch-style home with updated interiors and expansive outdoor living spaces. Features include open kitchen, large family room, and private backyard.",
+      "imagePath": "src/html/pages/assets/img/houses/house10.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house10lg.png",
+      "country": "Canada",
+      "address": "84 Woodland St. Cocoa, FL 32927",
+      "bedrooms": "5",
+      "bathrooms": "2",
+      "surface": "5200 sq ft",
+      "year": "2014",
+      "price": "180000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent1.png",
+        "name": "Patricia Tullert",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 14,
+      "type": "House",
+      "name": "House 11",
+      "description": "Beautifully renovated home with designer finishes throughout. Updates include new flooring, lighting, bathroom fixtures, and a completely remodeled kitchen.",
+      "imagePath": "src/html/pages/assets/img/houses/house11.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house11lg.png",
+      "country": "United States",
+      "address": "28 Westport Dr. Warminster, PA 18974",
+      "bedrooms": "5",
+      "bathrooms": "2",
+      "surface": "3200 sq ft",
+      "year": "2011",
+      "price": "213000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent2.png",
+        "name": "Daryl Hawker",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 15,
+      "type": "House",
+      "name": "House 12",
+      "description": "Custom-built home with premium materials and attention to detail. Featuring high ceilings, custom millwork, chef's kitchen, and a luxurious primary suite.",
+      "imagePath": "src/html/pages/assets/img/houses/house12.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house12lg.png",
+      "country": "Canada",
+      "address": "32 Pawnee Street Butte, MT 59701",
+      "bedrooms": "4",
+      "bathrooms": "3",
+      "surface": "5200 sq ft",
+      "year": "2013",
+      "price": "221000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent3.png",
+        "name": "Amado Smith",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 16,
+      "type": "Apartment",
+      "name": "Apartment 16",
+      "description": "Modern apartment in a well-maintained building with on-site amenities. Features include updated kitchen, hardwood floors, and good storage space.",
+      "imagePath": "src/html/pages/assets/img/apartments/a4.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a4lg.png",
+      "country": "Canada",
+      "address": "32 Pawnee Street Butte, MT 59701",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "surface": "1300 sq ft",
+      "year": "2011",
+      "price": "21000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent4.png",
+        "name": "Kaitlyn Gonzalez",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 17,
+      "type": "Apartment",
+      "name": "Apartment 17",
+      "description": "Spacious corner apartment with lots of windows and natural light. Recently updated with new kitchen appliances, bathroom fixtures, and fresh paint throughout.",
+      "imagePath": "src/html/pages/assets/img/apartments/a5.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a5lg.png",
+      "country": "United States",
+      "address": "28 Westport Dr. Warminster, PA 18974",
+      "bedrooms": "3",
+      "bathrooms": "1",
+      "surface": "1000 sq ft",
+      "year": "2012",
+      "price": "32000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent5.png",
+        "name": "Grover Robinson",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 18,
+      "type": "Apartment",
+      "name": "Apartment 18",
+      "description": "Charming apartment in a classic building with modern updates. Features include high ceilings, large windows, and a recently renovated kitchen and bathroom.",
+      "imagePath": "src/html/pages/assets/img/apartments/a6.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a6lg.png",
+      "country": "Canada",
+      "address": "84 Woodland St. Cocoa, FL 32927",
+      "bedrooms": "3",
+      "bathrooms": "1",
+      "surface": "1200 sq ft",
+      "year": "2010",
+      "price": "38000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent6.png",
+        "name": "Karen Sorensen",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 19,
+      "type": "Villa",
+      "name": "Mediterranean Villa",
+      "description": "Luxurious Mediterranean villa with stunning sea views, private pool, and lush gardens. Perfect for a relaxing vacation or permanent residence in one of Europe's most sought-after locations.",
+      "imagePath": "src/html/pages/assets/img/houses/house1.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house1lg.png",
+      "country": "Spain",
+      "address": "Calle Mirador 25, Marbella, Spain",
+      "bedrooms": "5",
+      "bathrooms": "4",
+      "surface": "4800 sq ft",
+      "year": "2018",
+      "price": "780000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent7.png",
+        "name": "Jawhar Shamil Naser",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 20,
+      "type": "Apartment",
+      "name": "Paris City Center",
+      "description": "Elegant apartment in the heart of Paris with views of Eiffel Tower. Featuring high ceilings, parquet floors, and classic French balconies. Walking distance to cafes, shops, and cultural landmarks.",
+      "imagePath": "src/html/pages/assets/img/apartments/a2.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a2lg.png",
+      "country": "France",
+      "address": "45 Rue de Rivoli, Paris, France",
+      "bedrooms": "3",
+      "bathrooms": "2",
+      "surface": "1450 sq ft",
+      "year": "1920",
+      "price": "950000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent8.png",
+        "name": "Juana Douglass",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 21,
+      "type": "Villa",
+      "name": "Santorini Cliffside",
+      "description": "Breathtaking white villa carved into the cliffs of Santorini with panoramic views of the Aegean Sea. Features a private infinity pool, traditional Cycladic architecture, and stunning sunset vistas.",
+      "imagePath": "src/html/pages/assets/img/houses/house3.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house3lg.png",
+      "country": "Greece",
+      "address": "Oia 847 02, Santorini, Greece",
+      "bedrooms": "4",
+      "bathrooms": "3",
+      "surface": "2800 sq ft",
+      "year": "2015",
+      "price": "1200000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent9.png",
+        "name": "Jerry Schenck",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 22,
+      "type": "Villa",
+      "name": "Cyprus Beach Villa",
+      "description": "Modern beachfront villa in Cyprus with direct access to the Mediterranean Sea. Featuring contemporary design, floor-to-ceiling windows, private pool, and landscaped gardens.",
+      "imagePath": "src/html/pages/assets/img/houses/house5.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house5lg.png",
+      "country": "Cyprus",
+      "address": "Sea Avenue 12, Paphos, Cyprus",
+      "bedrooms": "6",
+      "bathrooms": "5",
+      "surface": "5200 sq ft",
+      "year": "2020",
+      "price": "1850000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent10.png",
+        "name": "Vera Levesque",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 23,
+      "type": "Penthouse",
+      "name": "Lisbon Riverside",
+      "description": "Luxurious penthouse in Lisbon with panoramic views of the Tagus River. Features include a wraparound terrace, high-end finishes, smart home technology, and proximity to historical landmarks.",
+      "imagePath": "src/html/pages/assets/img/apartments/a5.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a5lg.png",
+      "country": "Portugal",
+      "address": "Avenida Ribeira 55, Lisbon, Portugal",
+      "bedrooms": "4",
+      "bathrooms": "3",
+      "surface": "2950 sq ft",
+      "year": "2019",
+      "price": "890000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent11.png",
+        "name": "Sofia Gomes",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 24,
+      "type": "Bungalow",
+      "name": "Thai Beachfront",
+      "description": "Traditional Thai-style bungalow steps from pristine beaches. Featuring teak wood interiors, tropical gardens, open-air living spaces, and authentic cultural elements.",
+      "imagePath": "src/html/pages/assets/img/houses/house7.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house7lg.png",
+      "country": "Thailand",
+      "address": "41 Beach Rd, Ko Samui, Thailand",
+      "bedrooms": "3",
+      "bathrooms": "2",
+      "surface": "1850 sq ft",
+      "year": "2017",
+      "price": "320000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent12.png",
+        "name": "Raymond Hood",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 25,
+      "type": "Villa",
+      "name": "Bali Paradise",
+      "description": "Exquisite Balinese villa surrounded by rice terraces with infinity pool, outdoor living areas, and tropical garden. Features traditional architecture with modern amenities.",
+      "imagePath": "src/html/pages/assets/img/houses/house9.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house9lg.png",
+      "country": "Bali",
+      "address": "Jl. Raya Ubud, Gianyar, Bali",
+      "bedrooms": "4",
+      "bathrooms": "4",
+      "surface": "3600 sq ft",
+      "year": "2019",
+      "price": "750000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent1.png",
+        "name": "Patricia Tullert",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 26,
+      "type": "Villa",
+      "name": "Maldives Overwater",
+      "description": "Exclusive overwater villa in the Maldives with glass floors, direct ocean access, private sundeck, and unmatched privacy. Experience island living at its finest.",
+      "imagePath": "src/html/pages/assets/img/houses/house11.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house11lg.png",
+      "country": "Maldives",
+      "address": "Milaidhoo Island, Baa Atoll, Maldives",
+      "bedrooms": "2",
+      "bathrooms": "2",
+      "surface": "1800 sq ft",
+      "year": "2021",
+      "price": "2500000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent2.png",
+        "name": "Daryl Hawker",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 27,
+      "type": "Condo",
+      "name": "Berlin Modern",
+      "description": "Contemporary condo in the heart of Berlin with industrial chic design, high ceilings, and floor-to-ceiling windows. Located in a vibrant neighborhood with excellent amenities.",
+      "imagePath": "src/html/pages/assets/img/apartments/a3.png",
+      "imageLgPath": "src/html/pages/assets/img/apartments/a3lg.png",
+      "country": "Germany",
+      "address": "Friedrichstraße 103, Berlin, Germany",
+      "bedrooms": "3",
+      "bathrooms": "2",
+      "surface": "1650 sq ft",
+      "year": "2016",
+      "price": "580000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent3.png",
+        "name": "Amado Smith",
+        "phone": "0123 456 78910"
+      }
+    },
+    {
+      "id": 28,
+      "type": "Villa",
+      "name": "Turkish Riviera",
+      "description": "Spectacular villa on the Turkish Riviera with breathtaking Mediterranean views, infinity pool, and private beach access. Modern design with traditional Turkish elements.",
+      "imagePath": "src/html/pages/assets/img/houses/house12.png",
+      "imageLgPath": "src/html/pages/assets/img/houses/house12lg.png",
+      "country": "Turkey",
+      "address": "Kalamar Koyu, Kalkan, Turkey",
+      "bedrooms": "5",
+      "bathrooms": "4",
+      "surface": "4400 sq ft",
+      "year": "2018",
+      "price": "920000",
+      "agent": {
+        "imagePath": "src/html/pages/assets/img/agents/agent4.png",
+        "name": "Kaitlyn Gonzalez",
+        "phone": "0123 456 78910"
+      }
+    }
+  ]
+} 

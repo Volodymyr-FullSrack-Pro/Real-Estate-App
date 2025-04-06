@@ -1,0 +1,39 @@
+:root {
+	--ff-primary: 'Poppins', sans-serif;
+
+	/* Цвета и тени из секции контактов */
+	--c-black: #000000;
+	--c-dark-purple: #7345cc;
+	--c-purple: #7c3aed;
+	--c-light-purple: #9369de;
+	--c-extra-light-purple: #c6aeff;
+	--c-divider: #f9f6ff;
+	--c-light-gray: #e5e7eb;
+	--c-white: #ffffff;
+	--c-green: #22c55e;
+	--c-dark-gray: #4b5563;
+	--c-desc: #5d5d5d;
+	--c-text: #5d5d5d;
+	--c-title: #333333;
+
+	/* Фоновые цвета */
+	--bg-c-main: #f9f6ff;
+	--bg-gradient-main: linear-gradient(to bottom, #f8f9ff, #f0f2ff);
+	--bg-gradient-primary: linear-gradient(135deg, #7345cc, #a372ff);
+	--bg-gradient-hover: linear-gradient(135deg, #6939b8, #9458ff);
+
+	/* Анимация и эффекты */
+	--transition-main: all 0.3s ease;
+	--box-shadow-sm: 0 5px 15px rgba(115, 69, 204, 0.15);
+	--box-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+	--box-shadow-hover: 0 15px 40px rgba(115, 69, 204, 0.12);
+	--border-radius-sm: 8px;
+	--border-radius-md: 12px;
+	--border-radius-lg: 16px;
+	--border-radius-xl: 20px;
+
+	/* Точки останова */
+	--bp-mobile: 576px;
+	--bp-tablet: 992px;
+	--bp-desktop: 1200px;
+}

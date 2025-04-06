@@ -1,0 +1,364 @@
+{
+  "housesData": [
+    {
+      "id": 1,
+      "type": "House",
+      "name": "House 1",
+      "description": "Luxurious villa with Mediterranean views, private pool, and modern amenities. Located in an upscale area of Limassol with easy access to beaches.",
+      "imagePath": "src/assets/images/houses/house1.png",
+      "imageLgPath": "src/assets/images/houses/house1lg.png", 
+      "country": "Cyprus",
+      "address": "284-286 Archiepiskopou Makariou III Avenue, Limassol, Cyprus",
+      "bedrooms": "4",
+      "bathrooms": "3",
+      "surface": "3200 sq ft",
+      "year": "2018",
+      "price": "450000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent1.png",
+        "name": "Patricia Tullert",
+        "phone": "+357 22 123 456"
+      }
+    },
+    {
+      "id": 2,
+      "type": "House",
+      "name": "House 2",
+      "description": "Elegant beachfront property with stunning sea views, spacious terrace and modern design. Features high-end finishes and smart home technology.",
+      "imagePath": "src/assets/images/houses/house2.png",
+      "imageLgPath": "src/assets/images/houses/house2lg.png",
+      "country": "United States",
+      "address": "742 Michigan Avenue, Miami Beach, FL 33139",
+      "bedrooms": "5",
+      "bathrooms": "4",
+      "surface": "4000 sq ft",
+      "year": "2019",
+      "price": "520000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent2.png",
+        "name": "Daryl Hawker",
+        "phone": "+1 (305) 555-0123"
+      }
+    },
+    {
+      "id": 3,
+      "type": "House",
+      "name": "House 3",
+      "description": "Contemporary villa in gated community with private garden and pool. Features include marble floors, designer kitchen, and panoramic city views.",
+      "imagePath": "src/assets/images/houses/house3.png",
+      "imageLgPath": "src/assets/images/houses/house3lg.png",
+      "country": "Canada",
+      "address": "125 Wellington Street, Toronto, ON M5V 2E3",
+      "bedrooms": "4",
+      "bathrooms": "3",
+      "surface": "3500 sq ft",
+      "year": "2017",
+      "price": "480000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent3.png",
+        "name": "Amado Smith",
+        "phone": "+1 (416) 555-0123"
+      }
+    },
+    {
+      "id": 4,
+      "type": "House",
+      "name": "House 4",
+      "description": "Luxury seaside villa with infinity pool and landscaped gardens. Featuring high ceilings, premium appliances, and extensive outdoor living areas.",
+      "imagePath": "src/assets/images/houses/house4.png",
+      "imageLgPath": "src/assets/images/houses/house4lg.png",
+      "country": "Cyprus",
+      "address": "Georgiou 'A 7, Germasogeia, 4047 Limassol, Cyprus",
+      "bedrooms": "6",
+      "bathrooms": "5",
+      "surface": "5000 sq ft",
+      "year": "2020",
+      "price": "650000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent4.png",
+        "name": "Kaitlyn Gonzalez",
+        "phone": "+357 25 123 456"
+      }
+    },
+    {
+      "id": 5,
+      "type": "House",
+      "name": "House 5",
+      "description": "Modern family villa in prestigious area with mountain and sea views. Features include solar panels, smart irrigation system, and guest house.",
+      "imagePath": "src/assets/images/houses/house5.png",
+      "imageLgPath": "src/assets/images/houses/house5lg.png",
+      "country": "United States",
+      "address": "1580 Stone Canyon Road, Los Angeles, CA 90077",
+      "bedrooms": "5",
+      "bathrooms": "4",
+      "surface": "4200 sq ft",
+      "year": "2019",
+      "price": "580000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent5.png",
+        "name": "Grover Robinson",
+        "phone": "+1 (310) 555-0123"
+      }
+    },
+    {
+      "id": 6,
+      "type": "House",
+      "name": "House 6",
+      "description": "Exclusive waterfront villa with private beach access and yacht berth. Features include wine cellar, home theater, and staff quarters.",
+      "imagePath": "src/assets/images/houses/house6.png",
+      "imageLgPath": "src/assets/images/houses/house6lg.png",
+      "country": "Canada",
+      "address": "458 Marine Drive, Vancouver, BC V7T 1B8",
+      "bedrooms": "7",
+      "bathrooms": "6",
+      "surface": "6500 sq ft",
+      "year": "2021",
+      "price": "850000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent6.png",
+        "name": "Karen Sorensen",
+        "phone": "+1 (604) 555-0123"
+      }
+    },
+    {
+      "id": 7,
+      "type": "Apartment",
+      "name": "Apartment 1",
+      "description": "Modern city apartment with stylish finishes and great natural light. Open concept living with balcony and secure parking. Steps from cafes and transit.",
+      "imagePath": "src/assets/images/apartments/a1.png",
+      "imageLgPath": "src/assets/images/apartments/a1lg.png",
+      "country": "Cyprus",
+      "address": "45 Archiepiskopou Makariou III Avenue, 6017 Larnaca, Cyprus",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "surface": "1200 sq ft",
+      "year": "2012",
+      "price": "20000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent7.png",
+        "name": "Jawhar Shamil Naser",
+        "phone": "+357 22 123 457"
+      }
+    },
+    {
+      "id": 8,
+      "type": "Apartment",
+      "name": "Apartment 2",
+      "description": "Cozy apartment in a vibrant neighborhood with recently updated kitchen and bathroom. Great storage and in-unit laundry. Perfect for first-time buyers.",
+      "imagePath": "src/assets/images/apartments/a2.png",
+      "imageLgPath": "src/assets/images/apartments/a2lg.png",
+      "country": "Canada",
+      "address": "223 Yonge Street, Toronto, ON M5B 1M4",
+      "bedrooms": "3",
+      "bathrooms": "1",
+      "surface": "1000 sq ft",
+      "year": "2011",
+      "price": "30000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent8.png",
+        "name": "Juana Douglass",
+        "phone": "+1 (416) 555-0124"
+      }
+    },
+    {
+      "id": 9,
+      "type": "Apartment",
+      "name": "Apartment 3",
+      "description": "Bright and airy apartment with large windows and city views. Featuring hardwood floors, updated kitchen with stainless appliances, and ample closet space.",
+      "imagePath": "src/assets/images/apartments/a3.png",
+      "imageLgPath": "src/assets/images/apartments/a3lg.png",
+      "country": "United States",
+      "address": "350 5th Avenue, New York, NY 10118",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "surface": "1100 sq ft",
+      "year": "2011",
+      "price": "40000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent9.png",
+        "name": "Jerry Schenck",
+        "phone": "+1 (212) 555-0123"
+      }
+    },
+    {
+      "id": 10,
+      "type": "House",
+      "name": "House 7",
+      "description": "Well-maintained family home with updated features and spacious backyard. Recent updates include new roof, HVAC, and kitchen appliances.",
+      "imagePath": "src/assets/images/houses/house7.png",
+      "imageLgPath": "src/assets/images/houses/house7lg.png",
+      "country": "Cyprus",
+      "address": "22 Griva Digeni Avenue, 8047 Paphos, Cyprus",
+      "bedrooms": "5",
+      "bathrooms": "3",
+      "surface": "3200 sq ft",
+      "year": "2015",
+      "price": "117000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent10.png",
+        "name": "Vera Levesque",
+        "phone": "+357 24 123 456"
+      }
+    },
+    {
+      "id": 11,
+      "type": "House",
+      "name": "House 8",
+      "description": "Newly constructed home with modern design and energy-efficient features. Open floor plan with custom finishes and premium appliances throughout.",
+      "imagePath": "src/assets/images/houses/house8.png",
+      "imageLgPath": "src/assets/images/houses/house8lg.png",
+      "country": "United States",
+      "address": "1234 Sunset Boulevard, Los Angeles, CA 90028",
+      "bedrooms": "7",
+      "bathrooms": "2",
+      "surface": "2200 sq ft",
+      "year": "2019",
+      "price": "145000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent11.png",
+        "name": "Sofia Gomes",
+        "phone": "+1 (323) 555-0123"
+      }
+    },
+    {
+      "id": 12,
+      "type": "House",
+      "name": "House 9",
+      "description": "Stately colonial home with historical character and modern updates. Features include original woodwork, updated kitchen, and spacious primary suite.",
+      "imagePath": "src/assets/images/houses/house9.png",
+      "imageLgPath": "src/assets/images/houses/house9lg.png",
+      "country": "Canada",
+      "address": "789 Robson Street, Vancouver, BC V6Z 3B7",
+      "bedrooms": "4",
+      "bathrooms": "4",
+      "surface": "4600 sq ft",
+      "year": "2015",
+      "price": "139000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent12.png",
+        "name": "Raymond Hood",
+        "phone": "+1 (604) 555-0124"
+      }
+    },
+    {
+      "id": 13,
+      "type": "House",
+      "name": "House 10",
+      "description": "Spacious ranch-style home with updated interiors and expansive outdoor living spaces. Features include open kitchen, large family room, and private backyard.",
+      "imagePath": "src/assets/images/houses/house10.png",
+      "imageLgPath": "src/assets/images/houses/house10lg.png",
+      "country": "Cyprus",
+      "address": "22 Griva Digeni Avenue, Paphos, Cyprus",
+      "bedrooms": "5",
+      "bathrooms": "2",
+      "surface": "5200 sq ft",
+      "year": "2014",
+      "price": "180000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent1.png",
+        "name": "Patricia Tullert",
+        "phone": "+357 26 123 456"
+      }
+    },
+    {
+      "id": 14,
+      "type": "House",
+      "name": "House 11",
+      "description": "Beautifully renovated home with designer finishes throughout. Updates include new flooring, lighting, bathroom fixtures, and a completely remodeled kitchen.",
+      "imagePath": "src/assets/images/houses/house11.png",
+      "imageLgPath": "src/assets/images/houses/house11lg.png",
+      "country": "United States",
+      "address": "567 Park Avenue, New York, NY 10022",
+      "bedrooms": "5",
+      "bathrooms": "2",
+      "surface": "3200 sq ft",
+      "year": "2011",
+      "price": "213000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent2.png",
+        "name": "Daryl Hawker",
+        "phone": "+1 (212) 555-0124"
+      }
+    },
+    {
+      "id": 15,
+      "type": "House",
+      "name": "House 12",
+      "description": "Custom-built home with premium materials and attention to detail. Featuring high ceilings, custom millwork, chef's kitchen, and a luxurious primary suite.",
+      "imagePath": "src/assets/images/houses/house12.png",
+      "imageLgPath": "src/assets/images/houses/house12lg.png",
+      "country": "Canada",
+      "address": "456 Bloor Street West, Toronto, ON M5S 1X8",
+      "bedrooms": "4",
+      "bathrooms": "3",
+      "surface": "5200 sq ft",
+      "year": "2013",
+      "price": "221000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent3.png",
+        "name": "Amado Smith",
+        "phone": "+1 (416) 555-0125"
+      }
+    },
+    {
+      "id": 16,
+      "type": "Apartment",
+      "name": "Apartment 16",
+      "description": "Modern apartment in a well-maintained building with on-site amenities. Features include updated kitchen, hardwood floors, and good storage space.",
+      "imagePath": "src/assets/images/apartments/a4.png",
+      "imageLgPath": "src/assets/images/apartments/a4lg.png",
+      "country": "United States",
+      "address": "789 Michigan Avenue, Chicago, IL 60611",
+      "bedrooms": "2",
+      "bathrooms": "1",
+      "surface": "1300 sq ft",
+      "year": "2011",
+      "price": "21000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent4.png",
+        "name": "Kaitlyn Gonzalez",
+        "phone": "+1 (312) 555-0123"
+      }
+    },
+    {
+      "id": 17,
+      "type": "Apartment",
+      "name": "Apartment 17",
+      "description": "Spacious corner apartment with lots of windows and natural light. Recently updated with new kitchen appliances, bathroom fixtures, and fresh paint throughout.",
+      "imagePath": "src/assets/images/apartments/a5.png",
+      "imageLgPath": "src/assets/images/apartments/a5lg.png",
+      "country": "Cyprus",
+      "address": "33 Archiepiskopou Kyprianou, Nicosia, Cyprus",
+      "bedrooms": "3",
+      "bathrooms": "1",
+      "surface": "1000 sq ft",
+      "year": "2012",
+      "price": "32000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent5.png",
+        "name": "Grover Robinson",
+        "phone": "+357 22 123 458"
+      }
+    },
+    {
+      "id": 18,
+      "type": "Apartment",
+      "name": "Apartment 18",
+      "description": "Charming apartment in a classic building with modern updates. Features include high ceilings, large windows, and a recently renovated kitchen and bathroom.",
+      "imagePath": "src/assets/images/apartments/a6.png",
+      "imageLgPath": "src/assets/images/apartments/a6lg.png",
+      "country": "Canada",
+      "address": "901 Bay Street, Toronto, ON M5S 3K6",
+      "bedrooms": "3",
+      "bathrooms": "1",
+      "surface": "1200 sq ft",
+      "year": "2010",
+      "price": "38000",
+      "agent": {
+        "imagePath": "src/assets/images/agents/agent6.png",
+        "name": "Karen Sorensen",
+        "phone": "+1 (416) 555-0126"
+      }
+    }
+  ]
+}

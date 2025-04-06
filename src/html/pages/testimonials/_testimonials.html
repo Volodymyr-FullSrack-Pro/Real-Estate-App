@@ -1,0 +1,121 @@
+<section class="testimonials" id="testimonials">
+	<include src="html/components/decorative-orbs/_index.html"></include>
+	<div class="testimonials__container">
+		<include src="html/components/main-title/_index.html" locals='{"text": "Client Testimonials"}'></include>
+		<p class="testimonials__subtitle">What our satisfied clients say about us</p>
+
+		<div class="testimonials__slider">
+			<div class="swiper testimonials-swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="testimonial">
+							<div class="testimonial__rating">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<p class="testimonial__text">
+								"House Zone made finding our dream home an absolute pleasure. Their agents were knowledgeable,
+								responsive, and truly cared about our needs. We couldn't be happier with our new home!"
+							</p>
+							<div class="testimonial__client">
+								<div class="testimonial__client-image">
+									<img src="src/assets/images/testimonials/client1.jpg" alt="Client 1">
+								</div>
+								<div class="testimonial__client-info">
+									<h4 class="testimonial__client-name">Sarah Johnson</h4>
+									<p class="testimonial__client-location">New York, USA</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="swiper-slide">
+						<div class="testimonial">
+							<div class="testimonial__rating">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+							</div>
+							<p class="testimonial__text">
+								"The team at House Zone provided exceptional service during our property sale. Their market analysis was
+								spot-on, and we received multiple offers above asking price within days of listing."
+							</p>
+							<div class="testimonial__client">
+								<div class="testimonial__client-image">
+									<img src="src/assets/images/testimonials/client2.jpg" alt="Client 2">
+								</div>
+								<div class="testimonial__client-info">
+									<h4 class="testimonial__client-name">Michael Chang</h4>
+									<p class="testimonial__client-location">Toronto, Canada</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="swiper-slide">
+						<div class="testimonial">
+							<div class="testimonial__rating">
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star"></i>
+								<i class="fa-solid fa-star-half-alt"></i>
+							</div>
+							<p class="testimonial__text">
+								"As first-time homebuyers, we had countless questions. Our agent at House Zone guided us through every
+								step with patience and expertise. We're now happily settled in our perfect first home."
+							</p>
+							<div class="testimonial__client">
+								<div class="testimonial__client-image">
+									<img src="src/assets/images/testimonials/client3.jpg" alt="Client 3">
+								</div>
+								<div class="testimonial__client-info">
+									<h4 class="testimonial__client-name">Elena Petrova</h4>
+									<p class="testimonial__client-location">Limassol, Cyprus</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		new Swiper('.testimonials-swiper', {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			loop: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			observer: true,
+			observeParents: true,
+			updateOnWindowResize: true,
+			autoHeight: true,
+			breakpoints: {
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 40,
+				},
+				1200: {
+					slidesPerView: 3,
+					spaceBetween: 50,
+				}
+			}
+		})
+	});
+</script>

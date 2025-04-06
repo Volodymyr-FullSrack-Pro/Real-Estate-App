@@ -1,0 +1,72 @@
+<section class="agents" id="agents">
+	<include src="html/components/decorative-orbs/_index.html"></include>
+	<div class="agents__container">
+		<include src="html/components/main-title/_index.html" locals='{"text": "Our Expert Team"}'></include>
+		<p class="agents__subtitle">Meet our professional real estate agents</p>
+
+		<div class="agents__grid">
+			<!-- Agent Cards - Populated dynamically based on your JSON data -->
+		</div>
+	</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', async () => {
+		try {
+			const response = await fetch('/src/html/properties.json')
+
+			if (!response.ok) {
+				throw new Error(`Error loading data: ${response.status}`)
+			}
+
+			const data = await response.json()
+			const agentsGrid = document.querySelector('.agents__grid')
+
+			if (!agentsGrid) {
+				console.error('Agents grid element not found')
+				return
+			}
+
+			const uniqueAgents = []
+			const agentNames = new Set()
+
+			data.housesData.forEach(house => {
+				if (!agentNames.has(house.agent.name)) {
+					uniqueAgents.push(house.agent)
+					agentNames.add(house.agent.name)
+				}
+			})
+
+			agentsGrid.innerHTML = ''
+
+			uniqueAgents.forEach(agent => {
+				const agentCard = document.createElement('div')
+				agentCard.classList.add('agent')
+
+				agentCard.innerHTML = `
+          <div class="agent__image-container">
+            <img src="${agent.imagePath}" alt="${agent.name}" class="agent__image">
+          </div>
+          <div class="agent__info">
+            <h3 class="agent__name">${agent.name}</h3>
+            <p class="agent__contact">
+              <i class="fa-solid fa-phone agent__icon"></i>
+              ${agent.phone}
+            </p>
+            <div class="agent__social">
+              <a href="#" class="agent__social-link"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="agent__social-link"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="agent__social-link"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="agent__social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        `
+
+				agentsGrid.appendChild(agentCard)
+			})
+
+		} catch (error) {
+			console.error('Error fetching agent data:', error)
+		}
+	});
+</script>

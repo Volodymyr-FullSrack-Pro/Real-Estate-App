@@ -1,0 +1,56 @@
+<div class="house-list">
+  <div class="house-list__empty">
+    <p class="house-list__empty-text">Sorry, nothing was found.</p>
+  </div>
+
+  <section class="house-list__section" id="house-list">
+    <include src="html/components/decorative-orbs/_index.html"></include>
+    <div class="house-list__container">
+      <div class="hero__results-header">
+        <div class="hero__results-summary">
+          <strong>All</strong> properties found
+          <button class="hero__reset-btn">
+            Reset filters
+          </button>
+        </div>
+      </div>
+
+      <include src="html/components/main-title/_index.html" locals='{"text": "Our Properties"}'></include>
+      <p class="house-list__subtitle">The best properties for your dream home</p>
+      <ul class="house-list__list" id="houses-grid">
+        <!-- Houses will be dynamically populated here by JavaScript -->
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- House card template to be cloned by JavaScript -->
+<template id="house-card-template">
+  <li class="house-list__item">
+    <a class="house-list__link">
+      <div class="house">
+        <img src="" alt="" class="house__image">
+        <div class="house__tags">
+          <span class="house__tag house__tag--type"></span>
+          <span class="house__tag house__tag--country"></span>
+        </div>
+        <h3 class="house__address"></h3>
+        <div class="house__features">
+          <div class="house__feature">
+            <i class="fa-solid fa-bed house__icon house__icon--bed"></i>
+            <span class="house__feature-text"></span>
+          </div>
+          <div class="house__feature">
+            <i class="fa-solid fa-bath house__icon house__icon--bath"></i>
+            <span class="house__feature-text"></span>
+          </div>
+          <div class="house__feature">
+            <i class="fa-solid fa-house house__icon house__icon--area"></i>
+            <span class="house__feature-text"></span>
+          </div>
+        </div>
+        <div class="house__price"></div>
+      </div>
+    </a>
+  </li>
+</template>

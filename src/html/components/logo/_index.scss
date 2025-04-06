@@ -1,0 +1,13 @@
+.logo {
+	display: inline-block;
+	overflow: hidden;
+	mix-blend-mode: multiply;
+
+	&__img {
+		transition: transform 0.3s ease;
+
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+}
