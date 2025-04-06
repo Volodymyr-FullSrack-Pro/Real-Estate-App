@@ -1,5 +1,6 @@
 <section class="property">
   <include src="html/components/decorative-orbs/_index.html"></include>
+
   <div class="property__loader" id="property-loader">
     <div class="spinner"></div>
     <span>Loading property...</span>
@@ -9,6 +10,7 @@
     <button class="property__back-btn" onclick="window.close();">
       &larr; Back to listings
     </button>
+
     <header class="property__header">
       <div class="property__title">
         <h1 class="property__name">House 1</h1>
@@ -27,7 +29,7 @@
     <div class="property__content">
       <article class="property__main">
         <figure class="property__image">
-          <img src="src/assets/images/houses/house1lg.png" alt="Detailed view of House 1">
+          <img src="/assets/images/houses/house1lg.png" alt="Detailed view of House 1" />
         </figure>
 
         <div class="property__features">
@@ -54,16 +56,13 @@
         </p>
 
         <div id="map" class="property__map"></div>
-
       </article>
-
-
 
       <aside class="property__sidebar">
         <div class="agent">
           <div class="agent__info">
             <figure class="agent__photo">
-              <img src="src/assets/images/agents/agent1.png" alt="Agent Patricia Tullert">
+              <img src="/assets/images/agents/agent1.png" alt="Agent Patricia Tullert" />
             </figure>
             <div class="agent__details">
               <div class="agent__name">Patricia Tullert</div>
@@ -74,19 +73,19 @@
           <form class="contact-form" action="#" method="POST" novalidate>
             <div class="contact-form__field">
               <label class="sr-only" for="name">Name</label>
-              <input type="text" id="name" class="contact-form__input" placeholder="Name*" required>
+              <input type="text" id="name" class="contact-form__input" placeholder="Name*" required />
               <div class="error-message" id="name-error"></div>
             </div>
 
             <div class="contact-form__field">
               <label class="sr-only" for="email">Email</label>
-              <input type="email" id="email" class="contact-form__input" placeholder="Email*" required>
+              <input type="email" id="email" class="contact-form__input" placeholder="Email*" required />
               <div class="error-message" id="email-error"></div>
             </div>
 
             <div class="contact-form__field">
               <label class="sr-only" for="phone">Phone</label>
-              <input type="tel" id="phone" class="contact-form__input" placeholder="Phone*" required>
+              <input type="tel" id="phone" class="contact-form__input" placeholder="Phone*" required />
               <div class="error-message" id="phone-error"></div>
             </div>
 
@@ -108,10 +107,27 @@
   </div>
 </section>
 
+<!-- Script is already correctly implemented -->
+
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('property-loader')
     const content = document.getElementById('property-content')
+    const contactForm = document.querySelector('.contact-form')
+
+    function showToast(message, type = 'success') {
+      const toast = document.createElement('div')
+      toast.className = `toast toast--${type}`
+      toast.textContent = message
+      document.body.appendChild(toast)
+
+      setTimeout(() => toast.classList.add('visible'), 100)
+      setTimeout(() => {
+        toast.classList.remove('visible')
+        setTimeout(() => toast.remove(), 300)
+      }, 3000)
+    }
 
     try {
       const houseData = sessionStorage.getItem('selectedHouse')
@@ -159,6 +175,7 @@
 
       const image = document.querySelector('.property__image img')
       if (image) {
+        const folder = house.type === 'Apartment' ? 'apartments' : 'houses'
         image.src = house.imageLgPath
         image.alt = `Detailed view of ${house.name || house.address}`
       }
@@ -184,13 +201,13 @@
         if (areaValue) areaValue.textContent = house.surface
       }
 
-      // Description
       safeText('.property__description', house.description)
 
-      // 👤 Agent
       if (house.agent) {
         const photo = document.querySelector('.agent__photo img')
-        if (photo) photo.src = house.agent.imagePath
+        if (photo) {
+          photo.src = house.agent.imagePath
+        }
 
         safeText('.agent__name', house.agent.name)
 
@@ -201,7 +218,6 @@
         }
       }
 
-      // Message input
       const message = document.querySelector('#message')
       if (message) {
         message.value = `Hello, I am interested in [${house.name || house.address}]`
@@ -213,6 +229,9 @@
 
 
     function initLeafletMap(address) {
+      const mapElement = document.getElementById('map')
+      if (!mapElement) return
+
       fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
         .then(res => res.json())
         .then(data => {
@@ -239,8 +258,6 @@
     }
 
     // Contact form validation and fake submission
-    const contactForm = document.querySelector('.contact-form')
-
     if (contactForm) {
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -328,21 +345,6 @@
           submitBtn.textContent = 'Send message'
         }, 1000)
       })
-    }
-
-
-
-    function showToast(message, type = 'success') {
-      const toast = document.createElement('div')
-      toast.className = `toast toast--${type}`
-      toast.textContent = message
-      document.body.appendChild(toast)
-
-      setTimeout(() => toast.classList.add('visible'), 100)
-      setTimeout(() => {
-        toast.classList.remove('visible')
-        setTimeout(() => toast.remove(), 300)
-      }, 3000)
     }
 
   })

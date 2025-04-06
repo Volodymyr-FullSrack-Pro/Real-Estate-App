@@ -8,23 +8,24 @@
 				Premium properties with detailed specs and stunning visuals. Your perfect home is just a few clicks away.
 			</p>
 		</div>
+
 		<div class="hero__image">
 			<div class="swiper hero-swiper">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide"><img src="src/assets/images/house-banner1.jpg" alt="Slide 1"></div>
-					<div class="swiper-slide"><img src="src/assets/images/house-banner2.jpg" alt="Slide 1"></div>
-					<div class="swiper-slide"><img src="src/assets/images/house-banner3.jpg" alt="Slide 1"></div>
-					<div class="swiper-slide"><img src="src/assets/images/house-banner4.jpg" alt="Slide 1"></div>
-					<div class="swiper-slide"><img src="src/assets/images/house-banner5.jpg" alt="Slide 1"></div>
+					<div class="swiper-slide"><img src="/assets/images/house-banner1.jpg" alt="Banner 1"></div>
+					<div class="swiper-slide"><img src="/assets/images/house-banner2.jpg" alt="Banner 2"></div>
+					<div class="swiper-slide"><img src="/assets/images/house-banner3.jpg" alt="Banner 3"></div>
+					<div class="swiper-slide"><img src="/assets/images/house-banner4.jpg" alt="Banner 4"></div>
+					<div class="swiper-slide"><img src="/assets/images/house-banner5.jpg" alt="Banner 5"></div>
 				</div>
-
 				<div class="swiper-button-prev custom-arrow">&lt;</div>
 			</div>
 		</div>
-
 	</div>
+
 	<div class="hero__search">
 		<div class="hero__search-form">
+			<!-- Location -->
 			<div class="hero__dropdown hero__dropdown--location">
 				<button class="hero__dropdown-btn" data-dropdown="location">
 					<i class="hero__dropdown-icon-primary fa-solid fa-location-dot"></i>
@@ -34,11 +35,10 @@
 					</div>
 					<i class="hero__dropdown-icon-secondary fa-solid fa-chevron-down"></i>
 				</button>
-				<ul class="hero__dropdown-menu" id="location-dropdown">
-					<!-- Will be populated from data.js -->
-				</ul>
+				<ul class="hero__dropdown-menu" id="location-dropdown"></ul>
 			</div>
 
+			<!-- Property -->
 			<div class="hero__dropdown hero__dropdown--property">
 				<button class="hero__dropdown-btn" data-dropdown="property">
 					<i class="hero__dropdown-icon-primary fa-solid fa-house"></i>
@@ -48,11 +48,10 @@
 					</div>
 					<i class="hero__dropdown-icon-secondary fa-solid fa-chevron-down"></i>
 				</button>
-				<ul class="hero__dropdown-menu" id="property-dropdown">
-					<!-- Will be populated from data.js -->
-				</ul>
+				<ul class="hero__dropdown-menu" id="property-dropdown"></ul>
 			</div>
 
+			<!-- Price -->
 			<div class="hero__dropdown hero__dropdown--price">
 				<button class="hero__dropdown-btn" data-dropdown="price">
 					<i class="hero__dropdown-icon-primary fa-solid fa-wallet"></i>
@@ -62,64 +61,21 @@
 					</div>
 					<i class="hero__dropdown-icon-secondary fa-solid fa-chevron-down"></i>
 				</button>
-				<ul class="hero__dropdown-menu" id="price-dropdown">
-					<!-- Will be populated from data.js -->
-				</ul>
+				<ul class="hero__dropdown-menu" id="price-dropdown"></ul>
 			</div>
 
+			<!-- Search -->
 			<button class="hero__search-btn">
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</button>
 		</div>
 	</div>
-
-
 </section>
+
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
-		const dropDownMenu = document.querySelectorAll('.hero__dropdown-menu')
-		const locationDropdown = document.getElementById('location-dropdown')
-		const propertyDropdown = document.getElementById('property-dropdown')
-		const priceDropdown = document.getElementById('price-dropdown')
-
-		if (!locationDropdown || !propertyDropdown || !priceDropdown) {
-			console.error('Dropdown elements not found')
-			return
-		}
-
-		function populateDropdown(menu, data, isPrice = false) {
-			if (!menu || !data) return
-
-			menu.innerHTML = ''
-
-			const anyOption = document.createElement('li')
-			anyOption.textContent = isPrice ? 'Price range (any)' : (menu.id.includes('location') ? 'Location (any)' : 'Property type (any)')
-			anyOption.classList.add('hero__dropdown-item')
-			anyOption.dataset.value = anyOption.textContent
-			menu.appendChild(anyOption)
-
-			if (isPrice) {
-				for (let i = 0; i < data.length - 1; i++) {
-					const from = parseInt(data[i]).toLocaleString()
-					const to = parseInt(data[i + 1]).toLocaleString()
-					const li = document.createElement('li')
-					li.textContent = `$${from} - $${to}`
-					li.classList.add('hero__dropdown-item')
-					li.dataset.value = `$${from} - $${to}`
-					menu.appendChild(li)
-				}
-			} else {
-				data.forEach(item => {
-					const li = document.createElement('li')
-					li.textContent = item
-					li.classList.add('hero__dropdown-item')
-					li.dataset.value = item
-					menu.appendChild(li)
-				})
-			}
-		}
-
+		// Swiper
 		new Swiper('.hero-swiper', {
 			loop: true,
 			autoplay: {
@@ -128,41 +84,60 @@
 			},
 			speed: 800,
 			effect: 'fade',
-			fadeEffect: {
-				crossFade: true
-			},
-			navigation: {
-				prevEl: '.custom-arrow',
-			}
+			fadeEffect: { crossFade: true },
+			navigation: { prevEl: '.custom-arrow' }
 		})
 
-		async function initializeDropdowns() {
+		// Dropdowns
+		const locationDropdown = document.getElementById('location-dropdown')
+		const propertyDropdown = document.getElementById('property-dropdown')
+		const priceDropdown = document.getElementById('price-dropdown')
+
+		async function initDropdowns() {
 			try {
 				const response = await fetch('/properties.json')
-
-				if (!response.ok) {
-					throw new Error(`Error loading data: ${response.status}`)
-				}
-
 				const data = await response.json()
 
-				// Extract unique values for each dropdown
-				const locations = [...new Set(data.housesData.map(house => house.country))]
-				const properties = [...new Set(data.housesData.map(house => house.type))]
-				const prices = [...new Set(data.housesData.map(house => house.price))]
+				const locations = [...new Set(data.housesData.map(h => h.country))].sort()
+				const types = [...new Set(data.housesData.map(h => h.type))].sort()
+				const prices = [...new Set(data.housesData.map(h => parseInt(h.price)))].sort((a, b) => a - b)
 
-				// Sort prices numerically
-				prices.sort((a, b) => parseInt(a) - parseInt(b))
+				populateDropdown(locationDropdown, locations, 'Location (any)')
+				populateDropdown(propertyDropdown, types, 'Property type (any)')
+				populateDropdown(priceDropdown, prices.map(p => p.toString()), 'Price range (any)', true)
 
-				populateDropdown(locationDropdown, locations)
-				populateDropdown(propertyDropdown, properties)
-				populateDropdown(priceDropdown, prices, true)
-			} catch (error) {
-				console.error('Error fetching data:', error)
+			} catch (e) {
+				console.error('Error loading dropdown data:', e)
 			}
 		}
 
-		// Initialize dropdowns once when page loads
-		initializeDropdowns()
+		function populateDropdown(menu, items, anyLabel, isPrice = false) {
+			menu.innerHTML = ''
+
+			const anyOption = document.createElement('li')
+			anyOption.textContent = anyLabel
+			anyOption.className = 'hero__dropdown-item'
+			menu.appendChild(anyOption)
+
+			if (isPrice) {
+				for (let i = 0; i < items.length - 1; i++) {
+					const from = parseInt(items[i]).toLocaleString()
+					const to = parseInt(items[i + 1]).toLocaleString()
+					const li = document.createElement('li')
+					li.textContent = `$${from} - $${to}`
+					li.className = 'hero__dropdown-item'
+					menu.appendChild(li)
+				}
+			} else {
+				items.forEach(val => {
+					const li = document.createElement('li')
+					li.textContent = val
+					li.className = 'hero__dropdown-item'
+					menu.appendChild(li)
+				})
+			}
+		}
+
+		initDropdowns()
 	})
 </script>

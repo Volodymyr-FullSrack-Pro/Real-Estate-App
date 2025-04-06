@@ -5,35 +5,30 @@
 		<p class="agents__subtitle">Meet our professional real estate agents</p>
 
 		<div class="agents__grid">
-			<!-- Agent Cards - Populated dynamically based on your JSON data -->
+			<!-- Agent Cards will be injected here -->
 		</div>
 	</div>
 </section>
+
 
 <script>
 	document.addEventListener('DOMContentLoaded', async () => {
 		try {
 			const response = await fetch('/properties.json')
-
-			if (!response.ok) {
-				throw new Error(`Error loading data: ${response.status}`)
-			}
+			if (!response.ok) throw new Error(`Failed to load data: ${response.status}`)
 
 			const data = await response.json()
 			const agentsGrid = document.querySelector('.agents__grid')
-
-			if (!agentsGrid) {
-				console.error('Agents grid element not found')
-				return
-			}
+			if (!agentsGrid) return console.error('❌ .agents__grid not found')
 
 			const uniqueAgents = []
 			const agentNames = new Set()
 
 			data.housesData.forEach(house => {
-				if (!agentNames.has(house.agent.name)) {
-					uniqueAgents.push(house.agent)
-					agentNames.add(house.agent.name)
+				const agent = house.agent
+				if (agent && !agentNames.has(agent.name)) {
+					uniqueAgents.push(agent)
+					agentNames.add(agent.name)
 				}
 			})
 
@@ -41,17 +36,20 @@
 
 			uniqueAgents.forEach(agent => {
 				const agentCard = document.createElement('div')
-				agentCard.classList.add('agent')
+				agentCard.className = 'agent'
+
+				const imgPath = agent.imagePath || '/assets/images/agents/placeholder.png'
+				const phone = agent.phone || 'N/A'
 
 				agentCard.innerHTML = `
           <div class="agent__image-container">
-            <img src="${agent.imagePath}" alt="${agent.name}" class="agent__image">
+            <img src="${imgPath}" alt="${agent.name}" class="agent__image">
           </div>
           <div class="agent__info">
             <h3 class="agent__name">${agent.name}</h3>
             <p class="agent__contact">
               <i class="fa-solid fa-phone agent__icon"></i>
-              ${agent.phone}
+              ${phone}
             </p>
             <div class="agent__social">
               <a href="#" class="agent__social-link"><i class="fa-brands fa-facebook-f"></i></a>
@@ -64,9 +62,8 @@
 
 				agentsGrid.appendChild(agentCard)
 			})
-
 		} catch (error) {
-			console.error('Error fetching agent data:', error)
+			console.error('❌ Error loading agents:', error)
 		}
-	});
+	})
 </script>

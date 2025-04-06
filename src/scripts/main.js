@@ -8,20 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const emptyElement = document.querySelector('.house-list__empty')
   const housesList = document.querySelector('.house-list__section')
 
-  // Navigation elements
   const mobileToggle = document.querySelector('.header__mobile-toggle')
   const navList = document.querySelector('.header__nav-list')
   const navLinks = document.querySelectorAll('.header__nav-link')
 
-  const dropdownIds = ['location', 'property', 'price']
-
   let housesData = []
   let activeDropdown = null
 
-  // Initialize navigation functionality
-  initNavigation()
+  // initNavigation()
 
-  // Text typing animation
   const textsToType = ['Your Dream House', 'Your Best Location', 'Your Ideal Property']
   let textIndex = 0, charIndex = 0, isDeleting = false
 
@@ -50,117 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await response.json()
       housesData = data.housesData || []
       renderHouseCards(housesData)
-      initDropdowns(housesData)
-      restoreDropdownSelections()
+
+      if (document.getElementById('location-dropdown')) {
+        initDropdowns(housesData)
+        restoreDropdownSelections()
+      }
     } catch (e) {
-      console.error('Ошибка при загрузке данных:', e)
+      console.error('Error fetching data:', e)
     }
-  }
-
-  // Navigation and smooth scrolling functionality
-  function initNavigation() {
-    // Mobile menu toggle
-    if (mobileToggle && navList) {
-      mobileToggle.addEventListener('click', () => {
-        mobileToggle.classList.toggle('active')
-        navList.classList.toggle('active')
-        document.body.classList.toggle('menu-open')
-      })
-    }
-
-    // Smooth scrolling for nav links
-    if (navLinks) {
-      navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault()
-
-          // Close mobile menu if open
-          if (navList && navList.classList.contains('active')) {
-            mobileToggle.classList.remove('active')
-            navList.classList.remove('active')
-            document.body.classList.remove('menu-open')
-          }
-
-          const targetId = link.getAttribute('data-scroll')
-          const targetSection = document.getElementById(targetId)
-
-          if (targetSection) {
-            window.scrollTo({
-              top: targetSection.offsetTop - 80, // Offset for header height
-              behavior: 'smooth'
-            })
-          } else if (targetId === 'hero') {
-            // Scroll to top for home link
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            })
-          } else if (targetId === 'house-list') {
-            // Scroll to house list section
-            const houseListSection = document.querySelector('.house-list__section')
-            if (houseListSection) {
-              window.scrollTo({
-                top: houseListSection.offsetTop - 80,
-                behavior: 'smooth'
-              })
-            }
-          }
-
-          // Set active class
-          navLinks.forEach(navLink => navLink.classList.remove('active'))
-          link.classList.add('active')
-        })
-      })
-    }
-
-    // Highlight active menu item based on scroll position
-    window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY
-
-      // Find all sections
-      const sections = [
-        { id: 'hero', element: document.querySelector('.hero') },
-        { id: 'services', element: document.getElementById('services') },
-        { id: 'house-list', element: document.querySelector('.house-list__section') },
-        { id: 'agents', element: document.getElementById('agents') },
-        { id: 'testimonials', element: document.getElementById('testimonials') },
-        { id: 'faq', element: document.getElementById('faq') },
-        { id: 'contact', element: document.getElementById('contact') }
-      ]
-
-      // Find the current section
-      let currentSection = null
-
-      for (const section of sections) {
-        if (section.element) {
-          const sectionTop = section.element.offsetTop - 100
-          const sectionBottom = sectionTop + section.element.offsetHeight
-
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentSection = section.id
-            break
-          }
-        }
-      }
-
-      // Update active nav link
-      if (currentSection) {
-        navLinks.forEach(link => {
-          const targetId = link.getAttribute('data-scroll')
-          if (targetId === currentSection) {
-            link.classList.add('active')
-          } else {
-            link.classList.remove('active')
-          }
-        })
-      }
-    })
   }
 
   function renderHouseCards(houses) {
     if (!housesGrid || !houseTemplate) return
 
     housesGrid.innerHTML = ''
+
     if (houses.length === 0) {
       emptyElement.style.display = 'block'
       housesGrid.style.display = 'none'
@@ -174,7 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = houseTemplate.content.cloneNode(true)
 
       const map = {
-        '.house__image': el => { el.src = house.imagePath; el.alt = house.name || house.address },
+        '.house__image': el => {
+          el.src = house.imagePath
+          el.alt = house.name || house.address
+        },
         '.house__tag--type': el => el.textContent = house.type,
         '.house__tag--country': el => el.textContent = house.country,
         '.house__address': el => el.textContent = house.address,
@@ -193,11 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el) map[selector](el)
       }
 
+      // Click to open house-profile
       card.querySelector('.house-list__link')?.addEventListener('click', e => {
         e.preventDefault()
         sessionStorage.setItem('selectedHouse', JSON.stringify(house))
         window.open(`house-profile.html?id=${house.id}`, '_blank')
-
       })
 
       housesGrid.appendChild(card)
@@ -207,12 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function filterProperties(location, type, priceRange) {
     return housesData.filter(property => {
       const price = parseInt(property.price)
-
       const isLocationValid = location === 'Location (any)' || property.country === location
       const isTypeValid = type === 'Property type (any)' || property.type === type
 
       let min = 0, max = Infinity
-      const priceMatch = priceRange?.match(/\d{1,3}(?:,\d{3})*/g) // match numbers like 650,000
+      const priceMatch = priceRange?.match(/\d{1,3}(?:,\d{3})*/g)
       if (priceMatch) {
         min = parseInt(priceMatch[0].replace(/,/g, ''))
         if (priceMatch[1]) {
@@ -221,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const isPriceValid = price >= min && price <= max
-
       return isLocationValid && isTypeValid && isPriceValid
     })
   }
@@ -238,62 +138,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const summary = document.querySelector('.hero__results-summary')
     if (summary) {
-      if (filtered.length > 0) {
-        summary.innerHTML = `<strong>${filtered.length}</strong> properties found
-          <button class="hero__reset-btn">
-            Reset filters
-          </button>`
-      } else {
-        summary.innerHTML = `<span style="color: red">No results found</span>
-          <button class="hero__reset-btn">
-            Reset filters
-          </button>`
-      }
+      summary.innerHTML = filtered.length > 0
+        ? `<strong>${filtered.length}</strong> properties found
+            <button class="hero__reset-btn">Reset filters</button>`
+        : `<span style="color: red">No results found</span>
+            <button class="hero__reset-btn">Reset filters</button>`
 
-      // Re-attach event listener to the new reset button
-      const resetButton = summary.querySelector('.hero__reset-btn')
-      if (resetButton) {
-        resetButton.addEventListener('click', resetFilters)
-      }
+      summary.querySelector('.hero__reset-btn')?.addEventListener('click', resetFilters)
     }
 
     housesList?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Create a separate function for reset filters functionality
   function resetFilters() {
     localStorage.removeItem('dropdownSelection')
-
     updateDropdownTitle('location', 'Location (any)')
     updateDropdownTitle('property', 'Property type (any)')
     updateDropdownTitle('price', 'Price range (any)')
-
     renderHouseCards(housesData)
 
     const summary = document.querySelector('.hero__results-summary')
     if (summary) {
       summary.innerHTML = `<strong>All</strong> properties found
-        <button class="hero__reset-btn">
-          Reset filters
-        </button>`
-
-      // Re-attach event listener to the new reset button
-      const resetButton = summary.querySelector('.hero__reset-btn')
-      if (resetButton) {
-        resetButton.addEventListener('click', resetFilters)
-      }
+          <button class="hero__reset-btn">Reset filters</button>`
+      summary.querySelector('.hero__reset-btn')?.addEventListener('click', resetFilters)
     }
 
     closeAllDropdowns()
   }
-
-  // Initialize the reset button with the reset filters function
-  const resetButton = document.querySelector('.hero__reset-btn')
-  if (resetButton) {
-    resetButton.addEventListener('click', resetFilters)
-  }
-
-  if (searchButton) searchButton.addEventListener('click', handleSearch)
 
   function closeAllDropdowns() {
     dropdownMenus.forEach(menu => {
@@ -412,4 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   fetchData()
+
+  if (searchButton) {
+    searchButton.addEventListener('click', handleSearch)
+  }
 })

@@ -7,9 +7,7 @@ export default {
   plugins: [
     vituum(),
     postcss(),
-    posthtml({
-      root: './src',
-    }),
+    posthtml({ root: './src' }),
 
     {
       name: 'custom-hmr',
@@ -23,66 +21,71 @@ export default {
         }
       },
     },
+
     {
       name: 'copy-static-files',
+      apply: 'build',
       writeBundle() {
-        copyFileSync('src/android-chrome-192x192.png', 'dist/android-chrome-192x192.png')
-        copyFileSync('src/android-chrome-512x512.png', 'dist/android-chrome-512x512.png')
-
         try {
-          if (!existsSync('dist/assets')) {
-            mkdirSync('dist/assets', { recursive: true })
+          // ✅ Копируем JSON
+          copyFileSync('src/properties.json', 'dist/properties.json')
+
+          // ✅ Копируем favicon и иконки
+          const icons = [
+            'favicon.ico',
+            'apple-touch-icon.png',
+            'android-chrome-192x192.png',
+            'android-chrome-512x512.png',
+            'site.webmanifest'
+          ]
+          icons.forEach(icon => {
+            const src = `src/${icon}`
+            const dest = `dist/${icon}`
+            if (existsSync(src)) copyFileSync(src, dest)
+          })
+
+          // ✅ Копируем изображения
+          const imagesSrc = 'src/assets/images'
+          const imagesDest = 'dist/assets/images'
+          if (existsSync(imagesSrc)) {
+            mkdirSync(imagesDest, { recursive: true })
+            cpSync(imagesSrc, imagesDest, { recursive: true })
           }
-          if (!existsSync('dist/assets/images')) {
-            mkdirSync('dist/assets/images', { recursive: true })
-          }
-          cpSync('src/assets/images', 'dist/assets/images', { recursive: true, force: true })
+
         } catch (err) {
-          console.error('Error copying images:', err)
+          console.error('❌ Error copying static files:', err)
         }
-      },
-    },
+      }
+    }
   ],
 
   build: {
-    root: './src',
     rollupOptions: {
       output: {
         assetFileNames: (asset) => {
-          const filePath = asset.name.split('/')
-          const fileName = filePath.pop()
-          const nestedPath = filePath.join('/')
-          const outputPath = `${nestedPath ? nestedPath + '/' : ''
-            }[name][extname]`
+          const ext = asset.name?.split('.').pop()
+          const name = asset.name?.split('/').pop()
 
-          if (asset.name.includes('favicon') || asset.name.includes('apple-touch-icon') || asset.name.includes('android-chrome')) {
-            return `${outputPath}`
+          if (!name) return '[name][extname]'
+
+          if (['png', 'jpg', 'webp', 'svg'].includes(ext)) {
+            return `assets/images/${name}`
           }
 
-          console.log(`${asset} - ${asset.name} - ${asset.type}`)
-          console.dir(`${asset}`)
-
-          if (asset.type === 'asset') {
-            switch (asset.name.split('.').pop()) {
-              case 'css':
-                return `css/${outputPath}`
-              case 'png':
-              case 'jpg':
-              case 'webp':
-              case 'svg':
-                return `assets/images/${fileName}`
-              case 'woff2':
-                return `fonts/${outputPath}`
-              case 'webmanifest':
-                return `${outputPath}`
-              default:
-                return `other/${outputPath}`
-            }
+          if (ext === 'css') {
+            return `css/${name}`
           }
+
+          if (ext === 'woff2') {
+            return `fonts/${name}`
+          }
+
+          return `[name][extname]`
         },
         preserveModuleDirectories: true,
-      }
+      },
     },
   },
-};
 
+  publicDir: 'public',
+}
