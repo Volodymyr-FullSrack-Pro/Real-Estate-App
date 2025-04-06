@@ -138,7 +138,7 @@
 
 		async function initializeDropdowns() {
 			try {
-				const response = await fetch('/src/html/properties.json')
+				const response = await fetch('/properties.json')
 
 				if (!response.ok) {
 					throw new Error(`Error loading data: ${response.status}`)
